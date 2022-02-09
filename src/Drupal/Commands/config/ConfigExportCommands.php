@@ -206,17 +206,17 @@ class ConfigExportCommands extends DrushCommands
             if (!file_exists($destination)) {
                 $parent = dirname($destination);
                 if (!is_dir($parent)) {
-                    throw new \Exception('The destination parent directory does not exist.');
+                    throw new \Exception(sprintf('The destination parent directory (%s) does not exist.', $parent));
                 }
                 if (!is_writable($parent)) {
-                    throw new \Exception('The destination parent directory is not writable.');
+                    throw new \Exception(sprintf('The destination parent directory (%s) is not writable.', $parent));
                 }
             } else {
                 if (!is_dir($destination)) {
-                    throw new \Exception('The destination is not a directory.');
+                    throw new \Exception(sprintf('The destination (%s) is not a directory.', $destination));
                 }
                 if (!is_writable($destination)) {
-                    throw new \Exception('The destination directory is not writable.');
+                    throw new \Exception(sprintf('The destination directory (%s) is not writable.', $destination));
                 }
             }
         }
